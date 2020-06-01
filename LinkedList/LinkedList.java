@@ -143,6 +143,20 @@ package LinkedLists;
 	}
 	public void reverselist()
 	{
+		Node prev=null;
+		Node cur=this.start_node;
+		Node next_node=null;
+		while(cur!=null)
+		{
+			next_node=cur.ref;
+			cur.ref=prev;
+			prev=cur;
+			cur=next_node;
+		}
+		start_node=prev;
+	}
+	public void reverselistRecursive()
+	{
 		
 	}
 	
@@ -152,6 +166,7 @@ public class LinkedList {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		LinkedListMethods ll=new LinkedListMethods();
+		
 		ll.insert_at_start(23);
 		ll.insert_at_end(34);
 		ll.insert_at_end(98);
@@ -162,6 +177,10 @@ public class LinkedList {
 		
 		
 		ll.traverse_list();
+		System.out.println();
+		ll.reverselist();
+		ll.traverse_list();
+		System.out.println();
 		System.out.println(ll.count());
 		
 		
